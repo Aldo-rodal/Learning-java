@@ -1,0 +1,50 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+// Program to add a value to the value of an index in an array.
+
+package exercises;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    public static Scanner scanner;
+
+    public Main() {
+    }
+
+    public static void addValueByIndex(int[] array, int index, int value) {
+        array[index] += value;      // method to add a value to the value of an index in an array
+    }
+
+    public static void main(String[] args) {
+        int[] array = new int[10];
+        int count = 0;
+        String[] var3 = scanner.nextLine().split(" ");
+        int value = var3.length;
+
+        for(int var5 = 0; var5 < value; ++var5) {
+            String s = var3[var5];                          // Put on an array the string received from 
+            int parseInt = Integer.parseInt(s);             // the user
+            if (array.length == count) {
+                array = Arrays.copyOf(array, count * 2);
+            }
+
+            array[count++] = parseInt;
+        }
+
+        array = Arrays.copyOfRange(array, 0, count);
+        int index = scanner.nextInt();
+        value = scanner.nextInt();
+        addValueByIndex(array, index, value);
+        Arrays.stream(array).forEach((e) -> {
+            System.out.print(e + " ");
+        });
+    }
+
+    static {
+        scanner = new Scanner(System.in);
+    }
+}
